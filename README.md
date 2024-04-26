@@ -79,6 +79,13 @@ git clone https://github.com/nxiodev/praxis_assesment.git
 python -m venv venv
 ```
 Se activa el ambiente:
+
+para windows: 
+
+```sh
+.\venv\Scripts\activate
+```
+o en linux:
 ```sh
 source venv/bin/activate
 ```
