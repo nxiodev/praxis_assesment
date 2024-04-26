@@ -1,1 +1,2 @@
-from .entidades_survivors import Pasajero # noqa
+# Proyecto
+from .entidades_survivors import Pasajero  # noqa

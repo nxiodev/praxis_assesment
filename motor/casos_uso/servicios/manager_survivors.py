@@ -1,15 +1,16 @@
+# Librerias Estandar
 from dataclasses import dataclass
 from typing import List
 
-from ...dominio.entidades.entidades_survivors import Pasajero
-from ...dominio.excepciones import excepciones_survivors as ex
-from ..puertos.primarios.manager_survivors import ManagerSurvivors
+# Proyecto
 from ..puertos.secundarios.repositorio_survivors import RepositorioSurvivors
+from ...dominio.entidades.entidades_survivors import Pasajero
+from ..puertos.primarios.manager_survivors import ManagerSurvivors
+from ...dominio.excepciones import excepciones_survivors as ex
 
 
 @dataclass
 class ManagerSurvivorsImpl(ManagerSurvivors):
-
     def __init__(self, repositorio_survivors: RepositorioSurvivors):
         self._repo_survivors = repositorio_survivors
 
@@ -24,4 +25,3 @@ class ManagerSurvivorsImpl(ManagerSurvivors):
             return self._repo_survivors.get_df()
         except ex.ExcepcionObtenerData as e:
             raise ex.ExcepcionObtenerData from e
-

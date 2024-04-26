@@ -2,11 +2,11 @@
 from typing import List
 from abc import abstractmethod, ABC
 
+# Proyecto
 from ....dominio.entidades import entidades_survivors as e
 
 
 class RepositorioSurvivors(ABC):
-
     @abstractmethod
     def get_df(self):
         """

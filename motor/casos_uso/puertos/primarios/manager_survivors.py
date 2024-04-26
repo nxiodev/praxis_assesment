@@ -2,6 +2,7 @@
 from typing import List
 from abc import abstractmethod, ABC
 
+# Proyecto
 from ....dominio.entidades import entidades_survivors as e
 
 

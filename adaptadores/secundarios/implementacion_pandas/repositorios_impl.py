@@ -2,19 +2,18 @@
 from dataclasses import dataclass
 from typing import List
 
-
-from motor.dominio.entidades import Pasajero, entidades_survivors as e
 from motor.casos_uso.puertos.secundarios import repositorio_survivors as ps
-from motor.dominio.excepciones import excepciones_survivors as ex
+from motor.dominio.entidades import entidades_survivors as e
 
+# Librerías de Terceros
 import pandas as pd
 
+# Proyecto
 from . import mapper as mp
 
 
 @dataclass
 class RepositorioSurvivorsImpl(ps.RepositorioSurvivors):
-
     def __init__(self, data_path: str):
         self._df = pd.read_csv(data_path)
 

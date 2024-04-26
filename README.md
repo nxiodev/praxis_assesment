@@ -72,7 +72,7 @@ https://github.com/nxiodev/django_arq_hex_example
 Para instalar el proyecto se debe clonar el repositorio y crear un entorno virtual con python
 
 ```sh
-git clone
+git clone https://github.com/nxiodev/praxis_assesment.git
 ```
 
 ```sh
@@ -85,6 +85,14 @@ source venv/bin/activate
 Se instalan dependencias
 ```sh
 pip install -r requirements.txt
+```
+
+
+****Nota importante****: Crea un archivo con nombre .env en la raíz del proyecto y agrega la siguiente configuración
+
+```
+SURVIVORS_DATA_PATH=https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv
+
 ```
 
 Para ejectuar los resultados del ejercicio se debe ejecutar el siguiente comando:

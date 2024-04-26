@@ -1,8 +1,9 @@
+# Librerias Estandar
 import os
-from adaptadores.secundarios.implementacion_pandas.factorias import construir_repo_survivors
-from motor.casos_uso.factoria import constructor_manager_survivors
 
+from adaptadores.secundarios.implementacion_pandas.factorias import construir_repo_survivors
 from adaptadores.secundarios.implementacion_pandas import mapper
+from motor.casos_uso.factoria import constructor_manager_survivors
 
 survivors_data_path = os.environ.get("SURVIVORS_DATA_PATH", "")
 repositorio_survivors = construir_repo_survivors(survivors_data_path)
@@ -11,7 +12,7 @@ motor = constructor_manager_survivors(repositorio_survivors)
 pasajeros_df = motor.get_df()
 
 # Quitar Miss Mr y Master
-patron = r'(?:Mr|Mrs|Miss|Master|Dr)\.\s'
+patron = r"(?:Mr|Mrs|Miss|Master|Dr)\.\s"
 pasajeros_df["Name"] = pasajeros_df["Name"].str.replace(patron, "", regex=True)
 
 # Obtener los pasajeros que sobrevivieron (1)
@@ -39,8 +40,9 @@ total_pasajeros_hombres = pasajeros_hombres["Sex"].count()
 # Obtener los pasajeros que son mujeres mayores de 65 años
 age_filter_config = {"gt": 65}
 
-female_65_survivors = motor.filter_df_value_col(pasajeros_mujeres, "Age", age_filter_config.get("gt"),
-                                                **age_filter_config)
+female_65_survivors = motor.filter_df_value_col(
+    pasajeros_mujeres, "Age", age_filter_config.get("gt"), **age_filter_config
+)
 female_65_survivors = mapper.dto_entidad_pasajero__df_survivor(female_65_survivors)
 
 try:
@@ -52,8 +54,9 @@ except Exception as e:
     print(f"Error: {e}")
     total_female_65_surviors = 0
 
-male_65_survivors = motor.filter_df_value_col(pasajeros_hombres, "Age", age_filter_config.get("gt"),
-                                              **age_filter_config)
+male_65_survivors = motor.filter_df_value_col(
+    pasajeros_hombres, "Age", age_filter_config.get("gt"), **age_filter_config
+)
 male_65_survivors = mapper.dto_entidad_pasajero__df_survivor(male_65_survivors)
 try:
     male_65_survivors = motor.filter_df_value_col(male_65_survivors, "Survived", 1)
@@ -91,7 +94,8 @@ pasjeros_mujeres_not_survivors = mapper.dto_entidad_pasajero__df_survivor(pasjer
 try:
     pasajeros_mujers_not_survivors_1_class = motor.filter_df_value_col(pasjeros_mujeres_not_survivors, "Pclass", 1)
     pasajeros_mujers_not_survivors_1_class = mapper.dto_entidad_pasajero__df_survivor(
-        pasajeros_mujers_not_survivors_1_class)
+        pasajeros_mujers_not_survivors_1_class
+    )
     total_mujeres_18_not_survivors_1_class = pasajeros_mujers_not_survivors_1_class["Pclass"].count()
 except Exception as e:
     print(f"Error: {e}")
@@ -104,7 +108,8 @@ pasjeros_hombres_not_survivors = mapper.dto_entidad_pasajero__df_survivor(pasjer
 try:
     pasajeros_hombres_not_survivors_1_class = motor.filter_df_value_col(pasjeros_hombres_not_survivors, "Pclass", 1)
     pasajeros_hombres_not_survivors_1_class = mapper.dto_entidad_pasajero__df_survivor(
-        pasajeros_hombres_not_survivors_1_class)
+        pasajeros_hombres_not_survivors_1_class
+    )
     total_hombres_18_not_survivors_1_class = pasajeros_hombres_not_survivors_1_class["Pclass"].count()
 except Exception as e:
     print(f"Error: {e}")
@@ -122,5 +127,4 @@ print(
     f"6. Total de mujeres mayores a 18 años no sobrevivientes y de primera clase: {total_mujeres_18_not_survivors_1_class} \n"
     f"6. Total de hombres mayores a 18 años no sobrevivientes y de primera clase: {total_hombres_18_not_survivors_1_class} \n"
     f"El punto 7 se hizo desde el principio, remplazar los valores en los nombres Mr Miss Master \n {pasajeros_df['Name']}"
-
 )
