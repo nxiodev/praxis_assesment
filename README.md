@@ -17,11 +17,11 @@ Para esos datos, generar las siguientes “salidas”.
 - ##### Limpiar el campo Name  quitar (Mr,Mrs,.,etc)
 
 ***
-# Proyecto
+# Proyecto 🧑🏾‍💻
 
 En este proyecto intenté poner en práctica los conocimientos que he adquirido en mi carrera profesional para resolver el ejercicio propuesto, utilizando clean code y buenas prácticas de programación, cumpliendo los estándares de calidad pep8.
 
-## Estrucutra del proyecto
+## Estrucutra del proyecto 🗂️
 
 El proyecto está estructurado de la siguiente manera:
 
@@ -67,7 +67,7 @@ también pueden consultar un repositorio personal en el cual aplico ese patrón 
 https://github.com/nxiodev/django_arq_hex_example
 ```
 ***
-## Instalación y uso
+## Instalación y uso 🚂
 
 Para instalar el proyecto se debe clonar el repositorio y crear un entorno virtual con python
 
@@ -88,14 +88,14 @@ pip install -r requirements.txt
 ```
 
 
-****Nota importante****: Crea un archivo con nombre .env en la raíz del proyecto y agrega la siguiente configuración
+****🚨🚨Nota importante🚨🚨****: Crea un archivo con nombre .env en la raíz del proyecto y agrega la siguiente configuración
 
 ```
 SURVIVORS_DATA_PATH=https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv
 
 ```
 
-Para ejectuar los resultados del ejercicio se debe ejecutar el siguiente comando:
+🚀 Para ejectuar los resultados del ejercicio se debe ejecutar el siguiente comando:
 
 ```sh
 python main.py
